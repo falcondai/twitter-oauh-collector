@@ -5,7 +5,7 @@ A web interface for collecting Twitter oauth access tokens from your account or 
 
 Why?
 ----
-The Twitter REST/Streaming API v1.1 requires user authentication on all API calls. To raise your limit above 1 account (you can get your own access token from the built-in OAuth tool), you need to implement the standard OAuth three-party handshake to collect your friends' access tokens. It is not hard (as you can see from the source) but this app will save you that pain and jumpstart your prototype.
+The Twitter REST/Streaming API v1.1 requires user authentication on all API calls. To raise your [rate limit](https://dev.twitter.com/docs/rate-limiting/1.1) above 1 account (you can get your own access token from the built-in OAuth tool), you need to implement the standard OAuth three-party handshake to collect your friends' access tokens. It is not hard (as you can see from the source) but this app will save you that pain and jumpstart your prototype.
 
 
 Requirements
@@ -28,6 +28,8 @@ Start the app
 ```bash
 $ python app.py
 ```
+
+and open [localhost:9001](http://localhost:9001) in your browser.
 
 Author
 ------
