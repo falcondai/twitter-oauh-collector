@@ -1,0 +1,3 @@
+*.pyc
+*~
+consumer_credentials.py

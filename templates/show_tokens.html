@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		body {font-family: sans-serif;}
+		span {border: 2px solid #888; padding: 5px;}
+		div {margin: 15px;}
+	</style>
+<body>
+	{% for token in tokens %}
+	<div>
+		<span>{{ loop.index }}</span>
+		<span>{{ token['user_id'] }}</span>
+		<span>{{ token['screen_name'] }}</span>
+		<span>{{ token['oauth_token'] }}</span>
+		<span>{{ token['oauth_token_secret'] }}</span>
+	</div>
+	{% else %}
+	<div>No access tokens collected.</div>
+	{% endfor %}
+	<div>back to <a href="{{ url_for('index') }}">index</a></div>
+</body>
+</html>
