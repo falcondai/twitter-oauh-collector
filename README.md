@@ -1,7 +1,7 @@
 Basic Twitter OAuth Token Collector
 ===================================
 
-Creates a web interface for collecting Twitter oauth access tokens from your account or your friends' accounts for prototyping purposes.
+A web interface for collecting Twitter oauth access tokens from your account or your friends' accounts for prototyping purposes.
 
 Why?
 ----
@@ -16,7 +16,7 @@ You need `python`, `twython`, and `flask` to set it up. If you don't already hav
 $ pip install flask twython
 ```
 
-Then you need to create your application on Twitter put your consumer token and secret into `consumer_credentials.py` like the following
+Then you need to [create your application on Twitter](https://dev.twitter.com/apps/new) and put your consumer token and secret into `consumer_credentials.py` like the following
 
 ```python
 consumer_key = 'your application's consumer key'
