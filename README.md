@@ -19,8 +19,8 @@ $ pip install flask twython
 Then you need to [create your application on Twitter](https://dev.twitter.com/apps/new) and put your consumer token and secret into `consumer_credentials.py` like the following
 
 ```python
-consumer_key = 'your application's consumer key'
-consumer_secret = 'your application's consumer secret'
+consumer_key = 'your application s consumer key'
+consumer_secret = 'your application s consumer secret'
 ```
 
 Start the app
