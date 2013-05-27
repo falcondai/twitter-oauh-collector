@@ -18,6 +18,7 @@
 	{% else %}
 	<div>No access tokens collected.</div>
 	{% endfor %}
+	<div><a href="{{ url_for('tokens_csv') }}">export tokens in csv</a></div>
 	<div>back to <a href="{{ url_for('index') }}">index</a></div>
 </body>
 </html>

@@ -66,5 +66,13 @@ def index():
 def show_tokens():
 	return render_template('show_tokens.html', tokens=tokens)
 
+@app.route('/tokens.csv')
+def tokens_csv():
+	fields = ['user_id', 'screen_name', 'oauth_token', 'oauth_token_secret']
+	s = ','.join(fields) + '\n'
+	for token in tokens:
+		s += ','.join(map(lambda field: str(token[field]), fields)) + '\n'
+	return Response(s, mimetype='application/csv')
+
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', debug=True, port=9001)
+	app.run(host='0.0.0.0', debug=False, port=9001)
