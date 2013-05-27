@@ -22,25 +22,14 @@ def save_token(token, token_store):
 	else:
 		token_store.append(token)
 
-def check_and_set_session_id(fn):
-	def wrapped(*args, **kwargs):
-		if 'id' not in session:
-			session['id'] = random.randint(0, 2**32)
-		return fn(*args, **kwargs)
-	return wrapped
-	
-@check_and_set_session_id
 @app.route('/authorize')
 def authorize():
 	auth_tokens = t.get_authentication_tokens(callback_url=request.url_root[:-1]+url_for('callback'))
 	session['rts'] = auth_tokens
-	print 'Session ID %s: %s' % (session['id'], session['rts'])
 	return redirect(auth_tokens['auth_url'])
 	
 @app.route('/callback')
 def callback():
-	print 'Session ID %s: %s' % (session['id'], request.args.items())
-	
 	if not session.has_key('rts'):
 		return 'Error: no request token stored in cookie.'
 		
@@ -53,14 +42,16 @@ def callback():
 			auth_tokens = tu.get_authorized_tokens(request.args['oauth_verifier'])
 
 			save_token(auth_tokens, tokens)
-			print 'Session ID %s: %s' % (session['id'], auth_tokens)
-			return 'authorization tokens: %s' % auth_tokens
+			return redirect(url_for('thanks'))
 	return 'Error: getting the incorrect access tokens.'
 
-@check_and_set_session_id
 @app.route('/')
 def index():
 	return render_template('index.html')
+
+@app.route('/thanks')
+def thanks():
+	return render_template('thanks.html')
 
 @app.route('/tokens')
 def show_tokens():
