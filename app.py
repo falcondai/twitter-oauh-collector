@@ -2,7 +2,6 @@
 
 from flask import Flask, Response, redirect, request, session, url_for, render_template
 from twython import Twython
-import random
 
 from consumer_credentials import consumer_key, consumer_secret
 
